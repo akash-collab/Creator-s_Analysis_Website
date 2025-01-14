@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Creator's Analysis</h1>
+    <div class="input-container">
+        <input type="text" id="video-url" placeholder="Enter YouTube Video URL" onkeydown="if(event.key==='Enter'){analyzeVideo()}">
+        <button onclick="analyzeVideo()">Analyze</button>
+    </div>
+    <div class="glass-card">
+        <div class="column column1">
+            <img id="thumbnail" src="" alt="Thumbnail">
+            <h2 id="video-title"></h2>
+            <p id="channel-name"></p>
+            <p id="published-at"></p>
+            <p id="likes"></p>
+            <p id="dislikes"></p>
+        </div>
+        <div class="column column2">
+            <div class="section" id="pie-chart-section">
+                <canvas id="sentimentPieChart" width="200" height="200"></canvas>
+            </div>
+            <div class="section" id="bar-chart-section">
+                <canvas id="sentimentBarChart" width="200" height="200"></canvas>
+            </div>
+            <div class="section" id="top-words-section">
+                <canvas id="topWordsBarChart" width="200" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+    <button class="button1" onclick="downloadReport()">Download Report</button>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    padding: 15px;
+    margin-right: 10px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    
+}
+
+.input-container button {
+    padding: 15px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.input-container button:hover {
+    background-color: white;
+    color: black;
+}
+
+.glass-card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: white;
+    
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.column {
+    padding: 20px;
+}
+
+.column1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.column1 img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.column1 h2, .column1 p {
+    margin: 10px 0;
+    align-items: start;
+}
+
+.column2 {
+    flex: 1;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-left: 20px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+#sentimentPieChart, #sentimentBarChart, #topWordsBarChart {
+    width: 550px !important;
+    height: 500px !important;
+}
+
+#video-details, #top-words {
+    margin: 20px 0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+.button1 {
+    padding: 10px;
+    width: 150px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button1:hover {
+    background-color: white;
+    color: black;
+}

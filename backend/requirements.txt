@@ -1,0 +1,5 @@
+Flask
+textblob
+google-api-python-client
+fpdf
+python-dotenv

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis Report</title>
+</head>
+<body>
+    <h1>YouTube Sentiment Analysis Report</h1>
+    <p>Video Title: {{ video_title }}</p>
+    <p>Channel Name: {{ channel_name }}</p>
+    <p>Published At: {{ published_at }}</p>
+    <p>Likes: {{ like_count }}</p>
+    <p>Dislikes: {{ dislike_count }}</p>
+    <h2>Sentiment Analysis</h2>
+    <p>Positive: {{ positive }}</p>
+    <p>Negative: {{ negative }}</p>
+    <p>Neutral: {{ neutral }}</p>
+    <h2>Top Words</h2>
+    <ul>
+        {% for word, count in top_words %}
+        <li>{{ word }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
