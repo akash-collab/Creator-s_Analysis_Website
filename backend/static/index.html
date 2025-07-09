@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <div class="header-bar">
+        <h1>Creator's Analysis</h1>
+        <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle dark mode">🌙</button>
+    </div>
+    <div class="input-container">
+        <input type="text" id="video-url" placeholder="Enter YouTube Video URL" onkeydown="if(event.key==='Enter'){analyzeVideo()}">
+        <button onclick="analyzeVideo()">Analyze</button>
+    </div>
+    
+    <!-- Analysis Results Section -->
+    <div class="glass-card" id="analysis-section" style="display: none;">
+        <div class="column column1">
+            <div class="video-info-container">
+                <img id="thumbnail" src="" alt="Thumbnail">
+                <div class="video-details-right">
+                    <h2 id="video-title"></h2>
+                    <p id="channel-name"></p>
+                    <p id="published-at"></p>
+                    <p id="likes"></p>
+                    <p id="dislikes"></p>
+                    <p id="view-count"></p>
+                    <p id="video-duration"></p>
+                    <p id="comment-count"></p>
+                    <p id="video-description"></p>
+                </div>
+            </div>
+        </div>
+        <div class="column column2">
+            <div class="section" id="pie-chart-section">
+                <h3>Sentiment Distribution</h3>
+                <canvas id="sentimentPieChart" width="200" height="200"></canvas>
+            </div>
+            <div class="section" id="bar-chart-section">
+                <h3>Sentiment Comparison</h3>
+                <canvas id="sentimentBarChart" width="200" height="200"></canvas>
+            </div>
+            <div class="section" id="top-words-section">
+                <h3>Most Common Words</h3>
+                <canvas id="topWordsBarChart" width="200" height="200"></canvas>
+            </div>
+            <div class="section" id="word-cloud-section">
+                <h3>Word Cloud</h3>
+                <div id="wordCloud" class="word-cloud-container"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Timeline Section -->
+    <div class="glass-card" id="timeline-section" style="display: none;">
+        <h3>Sentiment Timeline</h3>
+        <div class="timeline-controls">
+            <div class="timeline-controls-left">
+                <button onclick="loadTimeline()" class="btn-secondary">Load Timeline</button>
+            </div>
+            <div class="timeline-controls-right">
+                <label for="timeline-granularity">Granularity:</label>
+                <select id="timeline-granularity">
+                    <option value="hour">Hourly</option>
+                    <option value="day">Daily</option>
+                </select>
+            </div>
+        </div>
+        <div class="timeline-container">
+            <canvas id="timelineChart" width="600" height="300"></canvas>
+        </div>
+    </div>
+    
+    <!-- Export Section -->
+    <div class="glass-card" id="export-section" style="display: none;">
+        <h3>Export Analysis</h3>
+        <div class="export-controls">
+            <button onclick="exportData('json')" class="btn-secondary">Export as JSON</button>
+            <button onclick="exportData('csv')" class="btn-secondary">Export as CSV</button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/scripts.js"></script>
+    <script>
+    // Dark mode toggle logic
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        // Save preference
+        if(document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'true');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('darkMode', 'false');
+            darkModeToggle.textContent = '🌙';
+        }
+        if(window.updateChartsForTheme) window.updateChartsForTheme();
+    });
+    
+    // Timeline granularity change handler
+    const timelineGranularity = document.getElementById('timeline-granularity');
+    timelineGranularity.addEventListener('change', () => {
+        if (currentAnalysisData) {
+            loadTimeline();
+        }
+    });
+    
+    // On load, set dark mode if preferred
+    if(localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        darkModeToggle.textContent = '☀️';
+    }
+    </script>
+</body>
+</html>

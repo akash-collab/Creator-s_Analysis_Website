@@ -124,3 +124,146 @@ button {
     background-color: white;
     color: black;
 }
+
+/* New styles for timeline and export sections */
+#timeline-section, #export-section {
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-controls, .export-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+}
+
+#timeline-granularity {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#timelineChart {
+    max-width: 100%;
+    height: 300px !important;
+}
+
+.word-cloud-container {
+    min-height: 200px;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .input-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .input-container input {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .glass-card {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .column1 {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .column2 {
+        padding-left: 0;
+        max-height: none;
+    }
+    
+    #sentimentPieChart, #sentimentBarChart, #topWordsBarChart {
+        width: 100% !important;
+        height: 300px !important;
+    }
+    
+    .timeline-controls, .export-controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    #timelineChart {
+        height: 250px !important;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-container input {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .input-container button {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .glass-card {
+        padding: 10px;
+    }
+    
+    .column {
+        padding: 10px;
+    }
+}
